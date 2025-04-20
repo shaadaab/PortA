@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aditi Gupta | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --secondary: #4d44db;
+            --dark: #2f2e41;
+            --light: #f8f9fa;
+            --accent: #ff6584;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg,
+                    rgba(108, 99, 255, 0.1) 0%,
+                    rgba(255, 255, 255, 1) 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 99, 255, 0.15);
+        }
+
+        .skill-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 99, 255, 0.15);
+        }
+
+        .project-image {
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background-color: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg,
+                    rgba(108, 99, 255, 0.1) 0%,
+                    rgba(255, 255, 255, 1) 100%);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 99, 255, 0.15);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .skill-icon i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .landscape-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skill-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .skill-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background-color: rgba(108, 99, 255, 0.05);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+        }
+
+        .skill-link:hover {
+            background-color: rgba(108, 99, 255, 0.1);
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .skill-link i {
+            font-size: 12px;
+            margin-left: 8px;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .skill-link:hover i {
+            opacity: 1;
+            color: var(--secondary);
+            animation: linkArrow 0.5s ease infinite alternate;
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-link {
+                padding: 12px 15px;
+            }
+        }
+
+        /* Full-size Gallery Styling */
+        .full-size-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .gallery-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-item {
+            visibility: hidden;
+            /* Hide empty items but maintain layout */
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(0, 0, 0, 0);
+        }
+
+        /* Lightbox Modal (hidden by default) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5vh;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-link {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px dashed rgba(108, 99, 255, 0.3);
+            padding-bottom: 2px;
+        }
+
+        .contact-link:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Social Link Styling */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Item Styling */
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .gallery-item {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item {
+                height: 150px;
+            }
+
+            .skill-link {
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-row {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+        }
+
+        @keyframes linkArrow {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(3px);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-link {
+                padding: 12px 15px;
+            }
+
+            .skill-gallery {
+                height: 100px;
+            }
+        }
+
+        @keyframes linkArrow {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(3px);
+            }
+        }
+
+        @keyframes linkArrow {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(3px);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-link {
+                padding: 12px 15px;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+
+            .hero,
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .hero-content,
+            .about-text,
+            .contact-info {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .hero-image,
+            .about-image {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Aditi<span>Gupta</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Aditi Gupta</span><br />Journalism Student</h1>
+                <p>
+                    I’m an aspiring journalist with a passion for reporting, anchoring,
+                    content writing, and digital marketing. Always eager to tell stories
+                    that matter, I like to connect with people through impactful
+                    content. I’m actively looking for opportunities in anchoring,
+                    reporting, content creation, and digital media to grow, learn, and
+                    make my mark in the industry.
+                </p>
+                <br />
+                <br />
+                <a href="#projects" class="btn">View My Work</a> <br /><br /><br />
+            </div>
+            <div class="hero-image">
+                <img src="/Assets/0b62d85d97134ed2cf9b6bad7d7cd563.jpg" alt="Aditi Gupta" />
+                <img src="/Assets/a2.jpg" alt="Aditi Gupta" />
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/Assets/d721df902a73d3a0eed35a60ad63d327.jpg" alt="About Aditi" />
+                </div>
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Laboriosam adipisci quae laborum ab excepturi, accusamus quisquam
+                        iusto nisi, aspernatur at, sint vitae nam quia dolores obcaecati!
+                        Placeat in doloremque explicabo eum dolore accusamus quo
+                        voluptatibus nesciunt culpa impedit facere provident consectetur
+                        modi libero unde beatae quos distinctio ad ea est cumque nisi,
+                        blanditiis adipisci vitae. Sapiente mollitia error quasi magni,
+                        veniam consequuntur officiis ipsum, cupiditate autem doloribus
+                        reiciendis id! Tenetur, dolore ratione! Quidem sapiente assumenda
+                        dicta quod architecto. Amet impedit veritatis cupiditate rerum
+                        vitae suscipit inventore nostrum in voluptatem nisi omnis a
+                        accusamus eius autem, magnam officia non distinctio ipsam.
+                    </p>
+                    <a href="#" class="btn">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+
+            <div class="skills-container">
+                <!-- Anchoring Card -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Anchoring, Reporting & Field Interview</h3>
+                    <div class="landscape-photo">
+                        <img src="/Assets/a1.jpg" alt="Anchoring Work Sample" />
+                    </div>
+                    <div class="skill-links">
+                        <a href="https://www.instagram.com/reel/C5YHs-1x3xb/?igsh=MXI5cnc1dDFnaXd4bw%3D%3D" target="_blank" class="skill-link">
+                            <span>Bridge Collapse Reporting</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="https://www.instagram.com/reel/C4f5KLvRfIF/?igsh=bmhoZXE1YzU1M2Z5" target="_blank" class="skill-link">
+                            <span>Fashion - Radhika Merchant</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="https://www.instagram.com/reel/C6vc-QoRhxJ/?igsh=MW53em93anBwZG0wMA%3D%3D" target="_blank" class="skill-link">
+                            <span>Fashion - Met Gala 2024</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <p>Professional anchoring with extensive experience in news reporting, live events, and field
+                        interviews.</p>
+                </div>
+
+                <!-- Blogging Card -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Blogging</h3>
+                    <div class="landscape-photo">
+                        <img src="/Assets/b1.jpg" alt="Anchoring Work Sample" />
+                    </div>
+                    <div class="skill-links">
+                        <a href="#travel-blog" target="_blank" class="skill-link">
+                            <span>Travel Blog</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#tech-articles" target="_blank" class="skill-link">
+                            <span>Tech Articles</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#lifestyle-posts" target="_blank" class="skill-link">
+                            <span>Lifestyle Posts</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <p>Engaging content creation across multiple niches with strong SEO optimization and reader
+                        engagement.</p>
+                </div>
+
+                <!-- Emceeing Card -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>Emceeing & Script Writing</h3>
+                    <div class="landscape-photo">
+                        <img src="/Assets/b1.jpg" alt="Anchoring Work Sample" />
+                    </div>
+                    <div class="skill-links">
+                        <a href="#corporate-event" target="_blank" class="skill-link">
+                            <span>Corporate Event</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#wedding-script" target="_blank" class="skill-link">
+                            <span>Wedding Script</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#award-show" target="_blank" class="skill-link">
+                            <span>Award Show</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                    <p>Dynamic event hosting and professional script writing for various occasions and audiences.</p>
+                </div>
+
+                <!-- Designing Card -->
+                <div class="skill-card expanded-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Portfolio</h3>
+                    <div class="full-size-gallery">
+                        <span>Tap on the photos to expand</span>
+                        <div class="gallery-row">
+                            <div class="gallery-item" style="background-image: url('/Assets/d1.png')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/d1.png')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/d1.png')"></div>
+                        </div>
+                        <div class="gallery-row">
+                            <div class="gallery-item" style="background-image: url('/Assets/d1.png')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/d1.png')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/d1.png')"></div>
+                        </div>
+                    </div>
+                    <p>Creative design solutions including graphics, branding, and digital interfaces with a focus on
+                        user experience.</p>
+                </div>
+
+                <!-- Photography Card -->
+                <div class="skill-card expanded-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photography Portfolio</h3>
+                    <div class="full-size-gallery">
+                        <span>Tap on the photos to expand</span>
+                        <div class="gallery-row">
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                        </div>
+                        <div class="gallery-row">
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                        </div>
+                        <div class="gallery-row">
+                            <div class="gallery-item" style="background-image: url('/Assets/p1.jpg')"></div>
+                        </div>
+                    </div>
+                    <p>Professional photography with expertise in portraits, events, and travel photography with a
+                        unique perspective.</p>
+                </div>
+            </div> <!-- End .skills-container -->
+        </div>
+    </section>
+
+
+
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Work</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img width="100%" src="/Assets/jm.jpg" alt="Project 1" />
+                    </div>
+                    <div class="project-info">
+                        <h3>Journalism Internship - Bengaluru Post</h3>
+                        <p>
+                            During my four-week internship at Bengaluru Post, I researched,
+                            reported, and presented stories on urban infrastructure,
+                            environmental sustainability, governance, and community events.
+                            I wrote articles on issues like BMTC buses, greywater treatment,
+                            and deforestation, covered events such as a literature festival
+                            and vegan food fair, and conducted field interviews. I also
+                            provided voiceovers for news videos and did on-camera reporting
+                            on civic issues. A key highlight was my RT Nagar EV accident
+                            report, which prompted BBMP action. This experience sharpened my
+                            skills in research, writing, and multimedia journalism while
+                            offering valuable insights into India’s dynamic media landscape
+                            and the role of journalism in driving civic impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>
+                        Have a project in mind or want to discuss potential opportunities?
+                        Feel free to reach out!
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:aditi.gupta@example.com"
+                                    class="contact-link">aditi.gupta@example.com</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+919071123350" class="contact-link">+91 90711 23350</a></span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/yourusername" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://twitter.com/yourhandle" target="_blank" class="social-link"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/yourprofile" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formsubmit.co/aditiig.2004@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="Subject" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Aditi<span>Gupta</span></div>
+                <p>Journalism Student</p>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Aditi Gupta | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script>
+    // Simple lightbox functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-image">
+        `;
+        document.body.appendChild(modal);
+
+        const modalImg = document.getElementById('modal-image');
+        const closeBtn = document.querySelector('.close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function () {
+                if (this.style.backgroundImage) {
+                    modal.style.display = 'block';
+                    modalImg.src = this.style.backgroundImage
+                        .replace('url("', '')
+                        .replace('")', '');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', function () {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</html>
